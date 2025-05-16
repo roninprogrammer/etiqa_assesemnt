@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "axios": "^1.9.0",
+    "dayjs": "^1.11.13",
+    "prop-types": "^15.8.1",
+    "react-infinite-scroll-component": "^6.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.7",
+    "vite": "^6.3.5"
+  },
+  "name": "etiqatrendingapp",
+  "version": "1.0.0",
+  "description": "Build a performant, responsive, and scalable React Native app that fetches and displays the most-starred GitHub repos from the past 10 days with infinite scroll",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ETIQA-ASSESMENT/etiqaTrendingApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ETIQA-ASSESMENT/etiqaTrendingApp/issues"
+  },
+  "homepage": "https://github.com/ETIQA-ASSESMENT/etiqaTrendingApp#readme"
+}
