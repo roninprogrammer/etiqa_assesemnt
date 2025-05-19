@@ -1,37 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FaStar } from 'react-icons/fa';
 
 const RepoCard = ({ repo }) => {
   const { full_name, description, stargazers_count, owner, html_url } = repo;
   const fallbackAvatar = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(owner.login);
 
   return (
-    <article className="bg-white p-4 mb-3 border-b border-gray-200">
-      <div className="flex items-start justify-between gap-3">
-        <img
-          src={owner.avatar_url}
-          alt={owner.login + ' avatar'}
-          onError={(e) => (e.target.src = fallbackAvatar)}
-          className="w-6 h-6 rounded-full object-cover flex-shrink-0"
-        />
-
-        <div className="flex-1 min-w-0">
-          <a
-            href={html_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block font-medium text-sm text-blue-600 truncate hover:underline"
-          >
-            {full_name}
-          </a>
-          <p className="text-xs text-gray-700 mt-1 line-clamp-2">
-            {description || 'No description provided.'}
-          </p>
-          <span className="text-xs text-gray-500 mt-1 block">👤 {owner.login}</span>
+    <article className="bg-white p-4 mb-3 rounded border border-gray-200">
+      <a
+        href={html_url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block font-semibold text-sm text-black hover:underline truncate"
+      >
+        {full_name}
+      </a>
+      <p className="text-sm text-gray-800 mt-1">
+        {description || 'No description provided.'}
+      </p>
+      <div className="mt-2 flex items-center justify-between">
+        <div className="flex items-center space-x-2 text-xs text-gray-600">
+          <img
+            src={owner.avatar_url}
+            alt={owner.login + ' avatar'}
+            onError={(e) => (e.target.src = fallbackAvatar)}
+            className="w-3 h-3 rounded object-cover"
+          />
+          <span>{owner.login}</span>
         </div>
-
-        <div className="text-xs text-gray-600 font-medium pl-2 pt-0.5 whitespace-nowrap">
-          ⭐ {stargazers_count.toLocaleString()}
+        <div className="flex items-center gap-1 text-sm font-medium text-gray-800">
+          <FaStar className="text-black" /> {Math.round(stargazers_count / 100) / 10}k
         </div>
       </div>
     </article>
