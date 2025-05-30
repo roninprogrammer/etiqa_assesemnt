@@ -84,9 +84,11 @@ const HomePage = () => {
           loadRepos();
         }}
       >
-        {repos.map(repo => (
-          <RepoCard key={repo.id} repo={repo} />
-        ))}
+   <section className="space-y-3">
+  {repos.map(repo => (
+    <RepoCard key={repo.id} repo={repo} />
+  ))}
+</section>
       </InfiniteScroll>
     </section>
   );

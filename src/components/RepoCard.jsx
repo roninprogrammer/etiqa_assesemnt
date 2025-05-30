@@ -10,39 +10,38 @@ const RepoCard = ({ repo }) => {
     count >= 1000 ? (count / 1000).toFixed(1) + 'k' : count;
 
   return (
-    <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 p-6 mb-4 border border-gray-100">
-      <div className="flex items-start justify-between">
-        <div className="flex-1 min-w-0">
-          <a
-            href={html_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-lg font-semibold text-blue-700 hover:underline break-words"
-          >
-            {full_name}
-          </a>
-          <p className="text-sm text-gray-600 mt-2">
-            {description || 'No description provided.'}
-          </p>
-        </div>
-        <div className="ml-4 flex-shrink-0 flex items-center">
-          <FaStar className="text-yellow-500 mr-1" />
-          <span className="text-sm font-medium text-gray-800">
-            {formatStars(stargazers_count)}
-          </span>
-        </div>
-      </div>
+<div className="bg-white px-3 py-2 border border-gray-200 rounded shadow-sm">
+  <a
+    href={html_url}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-sm font-semibold text-black"
+  >
+    {full_name}
+  </a>
+  <p className="text-xs text-gray-700 mt-1">
+    {description || 'No description provided.'}
+  </p>
 
-      <div className="flex items-center mt-4">
-        <img
-          src={owner.avatar_url}
-          onError={(e) => (e.target.src = fallbackAvatar)}
-          alt={owner.login}
-          className="w-8 h-8 rounded-full object-cover border"
-        />
-        <span className="ml-3 text-sm font-medium text-gray-700">{owner.login}</span>
-      </div>
-    </div>
+  <div className="mt-3 flex items-center justify-between">
+<div className="flex items-center space-x-1 mt-2">
+  <img
+    src={owner.avatar_url}
+    alt={`${owner.login} avatar`}
+    onError={(e) => (e.target.src = fallbackAvatar)}
+    className="w-[14px] h-[14px] rounded object-cover"
+  />
+  <span className="text-xs text-gray-800">{owner.login}</span>
+</div>
+
+    <div className="flex items-center text-xs font-normal text-gray-800">
+  <FaStar className="mr-1 text-xs" />
+  {formatStars(stargazers_count)}
+</div>
+
+  </div>
+</div>
+
   );
 };
 
